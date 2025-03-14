@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link id="theme-style" rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/focus" class="back-to-tasks-btn">Focus Mode</a>        
+        <button id="theme-toggle">Toggle Theme</button>
+        <h1>📝 To-Do List</h1>
+        <form action="/add-task" method="POST">
+            <input type="text" name="name" placeholder="Task Name" required>
+            <input type="text" name="description" placeholder="Description">
+            <button type="submit">➕ Add Task</button>
+        </form>
+
+        <ul>
+            <% if (tasks.length === 0) { %>
+                <p>No tasks found. Start by adding one!</p>
+            <% } else { %>
+                <% tasks.forEach(task => { %>
+                    <li class="<%= task.status === 1 ? 'completed' : '' %>">
+                        <%= task.name %> - <%= task.description %>
+                        <div class="task-actions">
+                            <% if (task.status === 0) { %>
+                                <a href="/complete-task/<%= task.ID %>" class="complete">✅ Complete</a>
+                            <% } %>
+                            <a href="/delete-task/<%= task.ID %>" class="delete">❌ Delete</a>
+                        </div>
+                    </li>
+                <% }); %>
+            <% } %>
+        </ul>
+    </div>
+    <script src="../js/theme.js"></script>
+</body>
+</html>
