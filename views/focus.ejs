@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Focus Mode</title>
-    <link id="theme-style" rel="stylesheet" href="../css/style.css">
+    <link id="theme-style" rel="stylesheet" href="../css/timer.css">
 </head>
 <body>
 
@@ -13,19 +13,40 @@
         <a href="/" class="back-to-tasks-btn">Back to Tasks</a>
         <button id="theme-toggle">Toggle Theme</button>
 
+        <!-- Settings for Custom Focus & Break Time -->
+        <div class="focus-settings">
+            <label>Focus Time (minutes): 
+                <input type="number" id="focus-time" value="25" min="1" onKeyDown="return false">
+            </label>
+            <br>
+            <br>
+            <label>Break Time (minutes): 
+                <input type="number" id="break-time" value="5" min="1" onKeyDown="return false">
+            </label>
+            <br>
+            <button id="save-settings">Save</button>
+        </div>
+
+        <!-- Focus Timer -->
         <div class="timer-container">
             <h2 id="timer-display">25:00</h2>
             <button id="start-btn">Start</button>
-            <button id="pause-btn">Pause</button>
-            <button id="reset-btn">Reset</button>
+            <button id="pause-btn" class="hidden">Pause</button>
+            <button id="reset-btn" class="hidden">Reset</button>
         </div>
+        <!-- Popup Message -->
+        <div id="settings-popup">
+            <span id="popup-message"></span>
+        </div>
+        
+        <!-- Break Timer & Message -->
+        <div id="break-message" class="hidden">
+            <h2>Time for a break!</h2>
+            <h2 id="break-timer-display">5:00</h2>
+            <button id="skip-break-btn">Skip Break</button>
+        </div>
+    </div>
 
-    <div id="break-message" class="hidden">
-    <h2>Time for a break! Relax for 5 minutes.</h2>
-    <div id="break-timer-display">5:00</div>
-    <button id="skip-break-btn">Skip Break</button>
-    </div>
-    </div>
     <script src="../js/theme.js"></script>
     <script src="../js/focus.js"></script>
 </body>

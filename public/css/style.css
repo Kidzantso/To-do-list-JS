@@ -111,39 +111,6 @@ body.dark-mode li:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Timer */
-.timer-container {
-    margin-top: 20px;
-}
-
-#timer-display, #break-timer-display {
-    font-size: 2rem;
-}
-
-body.dark-mode #break-message {
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-}
-
-#break-message {
-    display: none;  /* Initially hidden */
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 1.2rem;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-}
-
-.hidden {
-    display: none;
-}
-
 /* Task Completion */
 .completed {
     text-decoration: line-through;
@@ -221,4 +188,3 @@ body.dark-mode #break-message {
   .dark-mode .task-actions .delete:hover {
     background: #d32f2f;
   }
-  
