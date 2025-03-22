@@ -304,29 +304,37 @@ body.dark-mode button {
 }
 /* Progress Bar Container */
 .progress-container {
-  width: 80%;
+  width: 100%;
+  max-width: 400px;
   margin: 20px auto;
   text-align: center;
+  font-weight: bold;
 }
 
-/* Progress Bar Background */
 .progress-bar {
   width: 100%;
   height: 20px;
-  background-color: #e0e0e0; /* Light gray for light mode */
+  background-color: #ddd;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Progress Fill */
-.progress-fill {
+.progress {
   height: 100%;
-  width: 0%; /* Default width */
-  background: linear-gradient(45deg, #4caf50, #8bc34a); /* Green gradient */
-  transition: width 0.5s ease-in-out;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out, background-color 0.5s;
 }
 
+.progress[data-value="0"] { background-color: red; }
+.progress[data-value="25"] { background-color: orange; }
+.progress[data-value="50"] { background-color: yellow; }
+.progress[data-value="75"] { background-color: lightgreen; }
+.progress[data-value="100"] { background-color: green; }
 /* Dark Mode Styles */
 body.dark-mode .progress-bar {
   background-color: #333; /* Dark background for progress bar */

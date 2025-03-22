@@ -46,4 +46,23 @@ function fetchTasksAndUpdateProgress() {
         })
         .catch(error => console.error("Error fetching tasks:", error));
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const progressBar = document.getElementById("progress");
+    const progressText = document.getElementById("progress-text");
 
+    if (progressBar) {
+        let progressValue = parseInt(progressText.innerText, 10);
+
+        // Function to determine the color based on percentage
+        function getProgressColor(value) {
+            if (value === 100) return "green";         // Completed
+            if (value >= 75) return "lightgreen";      // Almost done
+            if (value >= 50) return "yellow";         // Halfway there
+            if (value >= 25) return "orange";         // Getting started
+            return "red";                             // Not much progress
+        }
+
+        // Apply the color dynamically
+        progressBar.style.backgroundColor = getProgressColor(progressValue);
+    }
+});

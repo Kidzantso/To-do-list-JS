@@ -10,10 +10,11 @@
     <div class="progress-container">
         <p>📊 Task Progress</p>
         <p>Productivity: <span id="completed-count">0</span> / <span id="total-count">0</span> tasks completed</p>
-    <div class="progress-bar">
-        <div class="progress-fill" id="progress-fill"></div>
-    </div>    
-    </div>    
+        <p>Progress: <span id="progress-text"><%= progressPercentage %></span>%</p>
+        <div class="progress-bar">
+            <div id="progress" class="progress" style="width: <%= progressPercentage %>%;"></div>
+        </div> 
+    </div>     
     <div class="container">
         <a href="/focus" class="focus-mode-btn">Focus Mode</a>        
         <button id="theme-toggle">Toggle Theme</button>

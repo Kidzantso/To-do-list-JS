@@ -6,9 +6,13 @@ const Task = require('../models/Tasks.js'); // Adjust path based on your folder 
 // Function to get tasks
 exports.getTasks = (req, res) => {
     let tasks = fs.existsSync(tasksFile) ? JSON.parse(fs.readFileSync(tasksFile, 'utf8')) : [];
-    res.render('tasks', { tasks });
-};
 
+    let completedTasks = tasks.filter(task => task.status === 1).length;
+    let totalTasks = tasks.length;
+    let progressPercentage = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+
+    res.render('tasks', { tasks, progressPercentage, completedTasks, totalTasks });
+};
 exports.getAllTasks = (req, res) => {
     if (fs.existsSync(tasksFile)) {
         const tasks = JSON.parse(fs.readFileSync(tasksFile, "utf8"));
