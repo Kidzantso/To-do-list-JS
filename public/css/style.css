@@ -302,3 +302,48 @@ body.dark-mode button {
       width: 90%;
   }
 }
+/* Progress Bar Container */
+.progress-container {
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* Progress Bar Background */
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0; /* Light gray for light mode */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress Fill */
+.progress-fill {
+  height: 100%;
+  width: 0%; /* Default width */
+  background: linear-gradient(45deg, #4caf50, #8bc34a); /* Green gradient */
+  transition: width 0.5s ease-in-out;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .progress-bar {
+  background-color: #333; /* Dark background for progress bar */
+}
+
+body.dark-mode .progress-fill {
+  background: linear-gradient(45deg, #76ff03, #b2ff59); /* Brighter green for dark mode */
+}
+.cancel-complete {
+  background: #b98138; /* Red color */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cancel-complete:hover {
+  background: #ca7322;
+}

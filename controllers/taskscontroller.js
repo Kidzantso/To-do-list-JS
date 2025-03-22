@@ -9,6 +9,14 @@ exports.getTasks = (req, res) => {
     res.render('tasks', { tasks });
 };
 
+exports.getAllTasks = (req, res) => {
+    if (fs.existsSync(tasksFile)) {
+        const tasks = JSON.parse(fs.readFileSync(tasksFile, "utf8"));
+        res.json(tasks); // Send JSON response
+    } else {
+        res.json([]); // Send empty array if file doesn't exist
+    }
+};
 // Function to add a task
 exports.addTask = (req, res) => {
     let tasks = fs.existsSync(tasksFile) ? JSON.parse(fs.readFileSync(tasksFile, 'utf8')) : [];
@@ -46,6 +54,17 @@ exports.completeTask = (req, res) => {
 exports.deleteTask = (req, res) => {
     let tasks = JSON.parse(fs.readFileSync(tasksFile, 'utf8'));
     tasks = tasks.filter(task => task.ID != req.params.id);
+    fs.writeFileSync(tasksFile, JSON.stringify(tasks, null, 2));
+    res.redirect('/');
+};
+exports.cancelCompletion = (req, res) => {
+    let tasks = JSON.parse(fs.readFileSync(tasksFile, 'utf8'));
+    tasks.forEach(task => {
+        if (task.ID == req.params.id) {
+            task.datecompleted = null;
+            task.status = 0;
+        }
+    });
     fs.writeFileSync(tasksFile, JSON.stringify(tasks, null, 2));
     res.redirect('/');
 };

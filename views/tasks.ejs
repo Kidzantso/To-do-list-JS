@@ -7,6 +7,13 @@
     <link id="theme-style" rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <div class="progress-container">
+        <p>📊 Task Progress</p>
+        <p>Productivity: <span id="completed-count">0</span> / <span id="total-count">0</span> tasks completed</p>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+    </div>    
+    </div>    
     <div class="container">
         <a href="/focus" class="focus-mode-btn">Focus Mode</a>        
         <button id="theme-toggle">Toggle Theme</button>
@@ -73,7 +80,9 @@
                 <div class="task-actions">
                     <% if (task.status === 0) { %>
                         <a href="/complete-task/<%= task.ID %>" class="complete">✅ Complete</a>
-                    <% } %>
+                    <% } else { %>
+                        <a href="/cancel-completion/<%= task.ID %>" class="cancel-complete">↩️ Undo</a>
+                    <% } %>   
                     <a href="/edit-task/<%= task.ID %>" class="edit">✏️ Edit</a>
                     <a href="/delete-task/<%= task.ID %>" class="delete">❌ Delete</a>
                 </div>                
