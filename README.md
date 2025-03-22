@@ -14,3 +14,8 @@ to the user and added a complete and delete button to change the state of the ta
 
 Started by making focus mode (25 minutes timer) and (5 minutes break) and added the dark theme to the second page that can be accesed from the first one,also removed both css files and replaced with one css file
 also saved the theme in a local storage so it isn't affected by refreshing or navigating between pages 
+
++ **Third day**
+
+
+Started by implementing task editing, allowing user to update task details like name, description, category, and priority, added a progress bar that dynamically updates based on the number of completed tasks, using task status,made the progress bar changes color at different progress levels,added a "Undo" button to revert completed tasks if clicked by mistake.
