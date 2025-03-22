@@ -8,33 +8,81 @@
 </head>
 <body>
     <div class="container">
-        <a href="/focus" class="back-to-tasks-btn">Focus Mode</a>        
+        <a href="/focus" class="focus-mode-btn">Focus Mode</a>        
         <button id="theme-toggle">Toggle Theme</button>
         <h1>📝 To-Do List</h1>
+
         <form action="/add-task" method="POST">
             <input type="text" name="name" placeholder="Task Name" required>
             <input type="text" name="description" placeholder="Description">
+            
+            <!-- Priority Selection -->
+            <select name="priority" required>
+                <option value="High">🔴 High</option>
+                <option value="Medium">🟡 Medium</option>
+                <option value="Low">🟢 Low</option>
+            </select>
+
+            <!-- Category Selection -->
+            <select name="category" required>
+                <option value="Work">💼 Work</option>
+                <option value="Study">📚 Study</option>
+                <option value="Health">🏋️ Health</option>
+                <option value="Leisure">🎮 Leisure</option>
+                <option value="Other">🛠 Other</option>
+            </select>
+
             <button type="submit">➕ Add Task</button>
         </form>
 
-        <ul>
-            <% if (tasks.length === 0) { %>
-                <p>No tasks found. Start by adding one!</p>
-            <% } else { %>
-                <% tasks.forEach(task => { %>
-                    <li class="<%= task.status === 1 ? 'completed' : '' %>">
-                        <%= task.name %> - <%= task.description %>
-                        <div class="task-actions">
-                            <% if (task.status === 0) { %>
-                                <a href="/complete-task/<%= task.ID %>" class="complete">✅ Complete</a>
-                            <% } %>
-                            <a href="/delete-task/<%= task.ID %>" class="delete">❌ Delete</a>
-                        </div>
-                    </li>
-                <% }); %>
-            <% } %>
-        </ul>
+        <h2>📂 Filter Tasks</h2>
+<div class="filter-container">
+    <select id="categoryFilter">
+        <option value="All">All Categories</option>
+        <option value="Work">💼 Work</option>
+        <option value="Study">📚 Study</option>
+        <option value="Health">🏋️ Health</option>
+        <option value="Leisure">🎮 Leisure</option>
+        <option value="Other">🛠 Other</option>
+    </select>
+
+    <select id="priorityFilter">
+        <option value="All">All Priorities</option>
+        <option value="High">🔴 High</option>
+        <option value="Medium">🟡 Medium</option>
+        <option value="Low">🟢 Low</option>
+    </select>
+</div>
+
+
+<ul id="task-list">
+    <% if (tasks.length === 0) { %>
+        <p>No tasks found. Start by adding one!</p>
+    <% } else { %>
+        <% tasks.forEach(task => { %>
+            <li class="task-item <%= task.status === 1 ? 'completed' : '' %>" 
+                data-category="<%= task.category %>" 
+                data-priority="<%= task.priority %>">
+                
+                <span class="priority <%= task.priority.toLowerCase() %>">
+                    <%= task.priority === "High" ? "🔴" : task.priority === "Medium" ? "🟡" : "🟢" %>
+                </span>
+                <strong><%= task.name %></strong> - <%= task.description %> 
+                <small>(<%= task.category %>)</small>
+                
+                <div class="task-actions">
+                    <% if (task.status === 0) { %>
+                        <a href="/complete-task/<%= task.ID %>" class="complete">✅ Complete</a>
+                    <% } %>
+                    <a href="/delete-task/<%= task.ID %>" class="delete">❌ Delete</a>
+                </div>
+            </li>
+        <% }); %>
+    <% } %>
+</ul>
     </div>
+
     <script src="../js/theme.js"></script>
+    <script src="../js/task.js"></script> <!-- External JS file for filtering -->
 </body>
 </html>

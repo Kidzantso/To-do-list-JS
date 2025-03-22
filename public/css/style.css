@@ -1,190 +1,302 @@
 /* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: url('https://source.unsplash.com/1600x900/?nature,abstract') no-repeat center center/cover;
-    color: black;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    transition: background-color 0.3s, color 0.3s;
+  font-family: 'Poppins', sans-serif;
+  background: url('https://source.unsplash.com/1600x900/?nature,abstract') no-repeat center center/cover;
+  color: black;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
 }
-/* Form */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  input {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
 
 /* Dark Mode */
 body.dark-mode {
-    background-color: #121212;
-    color: white;
+  background-color: #121212;
+  color: white;
 }
 
-/* Container */
+/* Responsive Container */
 .container {
   background: rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 15px;
-  margin-top: 50px;
-  width: 50%;
+  margin-top: 30px;
+  width: 90%;
+  max-width: 600px;
   box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
 }
 
 body.dark-mode .container {
-    background: rgba(0, 0, 0, 0.8);
+  background: rgba(34, 34, 34, 0.9);
 }
 
-/* Buttons */
-button, .focus-mode-btn, .back-to-tasks-btn {
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: 0.3s;
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  width: 100%;
 }
 
-button {
-    background: linear-gradient(45deg, #ff416c, #ff4b2b);
-    color: white;
+input, select {
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 300px;
+  border: 2px solid #ccc;
+  border-radius: 40px;
+  background-color: #f8f9fa;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
 }
 
-button:hover {
-    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+select:hover, input:hover {
+  border-color: #007bff;
+  background-color: #e9ecef;
 }
 
-body.dark-mode button {
-    background: #444;
-    border: 1px solid white;
-}
-
-.focus-mode-btn, .back-to-tasks-btn {
-    background: #4caf50;
-    color: white;
-    text-decoration: none;
-    margin-top: 10px;
-}
-
-.focus-mode-btn:hover, .back-to-tasks-btn:hover {
-    background: #45a049;
+select:focus, input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
 /* Task List */
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 600px;
 }
 
-li {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    border-radius: 5px;
-    margin: 5px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.3s;
+/* Task Item */
+.task-item {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: 0.3s;
+  width: 100%;
 }
 
-li:hover {
-    background: rgba(255, 255, 255, 0.3);
+.task-item:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
-body.dark-mode li {
-    background: rgba(255, 255, 255, 0.1);
+body.dark-mode .task-item {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-body.dark-mode li:hover {
-    background: rgba(255, 255, 255, 0.2);
+body.dark-mode .task-item:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
-/* Task Completion */
+/* Task Header - Name, Priority & Category in one row */
+.task-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Task Name */
+.task-name {
+  font-size: 18px;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+/* Priority Icons */
+.priority {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* Task Category */
+.task-category {
+  font-size: 14px;
+  color: #777;
+  margin-left: 10px;
+}
+
+/* Task Description */
+.task-description {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+  width: 100%;
+}
+
+/* Task Actions */
+.task-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.task-actions a {
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 0.3s;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Complete & Delete Buttons */
+.task-actions .complete {
+  background: #56ad59;
+  color: white;
+}
+
+.task-actions .delete {
+  background: #f6837b;
+  color: white;
+}
+
+.task-actions .complete:hover {
+  background: #45a049;
+}
+
+.task-actions .delete:hover {
+  background: #fb0000;
+}
+
+/* Completed Task Styling */
 .completed {
-    text-decoration: line-through;
-    color: #d1d1d1;
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Priority Styles */
+.priority.high {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.priority.medium {
+  background-color: #ffcc00;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.priority.low {
+  background-color: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Filter Container */
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+  width: 100%;
+}
+
+/* Responsive Dropdowns */
+.filter-container select {
+  width: 100%;
+  max-width: 250px;
+}
+
+/* Buttons */
+button {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: 0.3s;
+  width: 100%;
+  max-width: 250px;
+}
+
+button {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  color: white;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #ff4b2b, #ff416c);
+}
+
+body.dark-mode button {
+  background: #444;
+  border: 1px solid white;
+}
+
+/* Focus Mode & Back Buttons */
+.focus-mode-btn {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: 0.3s;
+  background: #4caf50;
+  color: white;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.focus-mode-btn:hover {
+  background: #45a049;
+}
+
+/* ---- RESPONSIVE DESIGN ---- */
+@media screen and (max-width: 768px) {
+  .container {
+      width: 95%;
+      padding: 15px;
   }
-  
-  /* Task Buttons */
+
+  .task-header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
   .task-actions {
-    display: flex;
-    gap: 10px;
+      flex-direction: column;
+      gap: 5px;
   }
-  
+
   .task-actions a {
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    transition: 0.3s;
+      text-align: center;
+      padding: 10px;
   }
-  
-  .task-actions .complete {
-    background: #56ad59;
-    color: white;
+
+  .filter-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
   }
-  
-  .task-actions .delete {
-    background: #f6837b;
-    color: white;
+
+  select {
+      width: 90%;
   }
-  
-  .task-actions .complete:hover {
-    background: #45a049;
+
+  button {
+      width: 90%;
   }
-  
-  .task-actions .delete:hover {
-    background: #fb0000;
-  }
-  
-  /* ---- DARK MODE ---- */
-  .dark-mode {
-    background: #121212 !important;
-    color: #ffffff !important;
-  }
-  
-  .dark-mode .container {
-    background: rgba(34, 34, 34, 0.9);
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
-  }
-  
-  .dark-mode button {
-    background-color: #333;
-    color: white;
-    border: 1px solid white;
-  }
-  
-  .dark-mode li {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
-  .dark-mode li:hover {
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  .dark-mode .task-actions .complete {
-    background: #4c9950;
-  }
-  
-  .dark-mode .task-actions .delete {
-    background: #ad5252;
-  }
-  .dark-mode .task-actions .complete:hover {
-    background: #388e3c;
-  }
-  
-  .dark-mode .task-actions .delete:hover {
-    background: #d32f2f;
-  }
+}

@@ -32,7 +32,7 @@ body.dark-mode {
   }
   
   /* Buttons */
-  button, .focus-mode-btn, .back-to-tasks-btn {
+  button, .back-to-tasks-btn {
       padding: 10px;
       border: none;
       cursor: pointer;
@@ -55,14 +55,14 @@ body.dark-mode {
       border: 1px solid white;
   }
   
-  .focus-mode-btn, .back-to-tasks-btn {
+  .back-to-tasks-btn {
       background: #4caf50;
       color: white;
       text-decoration: none;
       margin-top: 10px;
   }
   
-  .focus-mode-btn:hover, .back-to-tasks-btn:hover {
+  .back-to-tasks-btn:hover {
       background: #45a049;
   }
   

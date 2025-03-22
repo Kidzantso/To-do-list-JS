@@ -1,10 +1,12 @@
 const fs = require('fs');
 
 class Task {
-    constructor(ID, name, description) {
+    constructor(ID, name, description, priority, category) {
         this.ID = ID;
         this.name = name;
         this.description = description;
+        this.priority = priority;
+        this.category = category;
         this.dateEntered = new Date();
         this.dateCompleted = null;
         this.status = 0;
@@ -15,7 +17,7 @@ class Task {
             const data = fs.readFileSync('tasks.json', 'utf8');
             return JSON.parse(data);
         } catch (error) {
-            return []; // Return an empty array if file doesn't exist
+            return [];
         }
     }
 
