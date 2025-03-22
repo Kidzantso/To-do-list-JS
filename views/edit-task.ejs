@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-to-tasks-btn">Back to Tasks</a>
+        <button id="theme-toggle">Toggle Theme</button>
+        <h1>✏️ Edit Task</h1>
+        <form action="/update-task/<%= task.ID %>" method="POST">
+            <input type="text" name="name" value="<%= task.name %>" required>
+            <input type="text" name="description" value="<%= task.description %>">
+            
+            <select name="category">
+                <option value="Work" <%= task.category === "Work" ? "selected" : "" %>>💼 Work</option>
+                <option value="Study" <%= task.category === "Study" ? "selected" : "" %>>📚 Study</option>
+                <option value="Health" <%= task.category === "Health" ? "selected" : "" %>>🏋️ Health</option>
+                <option value="Leisure" <%= task.category === "Leisure" ? "selected" : "" %>>🎮 Leisure</option>
+                <option value="Other" <%= task.category === "Other" ? "selected" : "" %>>🛠 Other</option>
+            </select>
+
+            <select name="priority">
+                <option value="High" <%= task.priority === "High" ? "selected" : "" %>>🔴 High</option>
+                <option value="Medium" <%= task.priority === "Medium" ? "selected" : "" %>>🟡 Medium</option>
+                <option value="Low" <%= task.priority === "Low" ? "selected" : "" %>>🟢 Low</option>
+            </select>
+
+            <button type="submit">💾 Save Changes</button>
+        </form>
+        <a href="/" class="back-to-tasks-btn">⬅ Back to Tasks</a>
+    </div>
+    <script src="../js/theme.js"></script>
+</body>
+</html>

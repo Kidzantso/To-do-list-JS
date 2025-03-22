@@ -20,6 +20,7 @@ class Task {
             return [];
         }
     }
+    
 
     saveTask() {
         let tasks = Task.getAllTasks();
@@ -35,6 +36,21 @@ class Task {
             task.status = 1;
             fs.writeFileSync('tasks.json', JSON.stringify(tasks, null, 2));
         }
+    }
+    static updateTask(id, newData) {
+        let tasks = Task.getAllTasks();
+        let task = tasks.find(t => t.ID === parseInt(id));
+        if (task) {
+            task.name = newData.name || task.name;
+            task.description = newData.description || task.description;
+            task.category = newData.category || task.category;
+            task.priority = newData.priority || task.priority;
+            fs.writeFileSync('tasks.json', JSON.stringify(tasks, null, 2));
+        }
+    }
+    static getTaskById(id) {
+        const tasks = this.getAllTasks();
+        return tasks.find(task => task.ID == id);
     }
 }
 

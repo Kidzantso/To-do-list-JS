@@ -74,8 +74,9 @@
                     <% if (task.status === 0) { %>
                         <a href="/complete-task/<%= task.ID %>" class="complete">✅ Complete</a>
                     <% } %>
+                    <a href="/edit-task/<%= task.ID %>" class="edit">✏️ Edit</a>
                     <a href="/delete-task/<%= task.ID %>" class="delete">❌ Delete</a>
-                </div>
+                </div>                
             </li>
         <% }); %>
     <% } %>

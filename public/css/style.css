@@ -72,7 +72,7 @@ select:focus, input:focus {
 ul {
   list-style: none;
   padding: 0;
-  width: 100%;
+  width: 95%;
   max-width: 600px;
 }
 
@@ -168,6 +168,11 @@ body.dark-mode .task-item:hover {
   color: white;
 }
 
+.task-actions .edit {
+  background: #5171c9;
+  color: white;
+}
+
 .task-actions .complete:hover {
   background: #45a049;
 }
@@ -176,6 +181,9 @@ body.dark-mode .task-item:hover {
   background: #fb0000;
 }
 
+.task-actions .edit:hover {
+  background: #274bae;
+}
 /* Completed Task Styling */
 .completed {
   text-decoration: line-through;
@@ -228,8 +236,6 @@ button {
   border-radius: 5px;
   font-size: 1rem;
   transition: 0.3s;
-  width: 100%;
-  max-width: 250px;
 }
 
 button {
@@ -247,7 +253,7 @@ body.dark-mode button {
 }
 
 /* Focus Mode & Back Buttons */
-.focus-mode-btn {
+.focus-mode-btn , .back-to-tasks-btn{
   padding: 10px;
   border: none;
   cursor: pointer;
@@ -260,7 +266,7 @@ body.dark-mode button {
   margin-top: 10px;
 }
 
-.focus-mode-btn:hover {
+.focus-mode-btn:hover, .back-to-tasks-btn {
   background: #45a049;
 }
 
@@ -293,10 +299,6 @@ body.dark-mode button {
   }
 
   select {
-      width: 90%;
-  }
-
-  button {
       width: 90%;
   }
 }
