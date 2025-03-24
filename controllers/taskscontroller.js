@@ -38,7 +38,8 @@ exports.addTask = (req, res) => {
 
     tasks.push(newTask);
     fs.writeFileSync(tasksFile, JSON.stringify(tasks, null, 2));
-    res.redirect('/');
+
+    res.json({ success: true, message: "Task added successfully!" }); // Ensure JSON response
 };
 
 // Function to mark a task as completed
