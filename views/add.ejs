@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>To-Do List</title>
+    <link id="theme-style" rel="stylesheet" href="../css/style.css">
+</head> 
+<body>
+    <div class="container">
+        <%- include('partials/header') %>
+    <h1>📝 To-Do List</h1>
+    <form action="/add/add-task" method="POST">
+        <input type="text" name="name" placeholder="Task Name" required>
+        <input type="text" name="description" placeholder="Description">
+        
+        <!-- Priority Selection -->
+        <select name="priority" required>
+            <option value="High">🔴 High</option>
+            <option value="Medium">🟡 Medium</option>
+            <option value="Low">🟢 Low</option>
+        </select>
+    
+        <!-- Category Selection -->
+        <select name="category" required>
+            <option value="Work">💼 Work</option>
+            <option value="Study">📚 Study</option>
+            <option value="Health">🏋️ Health</option>
+            <option value="Leisure">🎮 Leisure</option>
+            <option value="Other">🛠 Other</option>
+        </select>
+    
+        <button type="submit">➕ Add Task</button>
+    </form>
+</div>
+<script src="../js/theme.js"></script>
+</body>
+</html>

@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const taskRoutes = require('./routes/taskrouter');
 const focusRoutes = require('./routes/focusrouter');
+const addtaskRoutes = require('./routes/addtask');
 const path = require('path');
 
 const app = express();
@@ -10,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', taskRoutes);
 app.use('/focus', focusRoutes);
-
+app.use('/add', addtaskRoutes);
 
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
