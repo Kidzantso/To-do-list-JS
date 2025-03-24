@@ -19,3 +19,9 @@ also saved the theme in a local storage so it isn't affected by refreshing or na
 
 
 Started by implementing task editing, allowing user to update task details like name, description, category, and priority, added a progress bar that dynamically updates based on the number of completed tasks, using task status,made the progress bar changes color at different progress levels,added a "Undo" button to revert completed tasks if clicked by mistake.
+
+
++ **Fourth day**
+
+
+Splitted each function in a page and added a header for better ui/ux and routing 
