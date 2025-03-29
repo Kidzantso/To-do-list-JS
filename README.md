@@ -1,7 +1,7 @@
 # To do list 
 **To do list 📃 using HTML/CSS/JS**
 
-This is an implementation for a simple to do list as my first project in my 50 projects challenge and i decided to start with pure html/css/js to begin this challenge with
+This is an implementation for a simple to do list as my first project in my "How many projects you can do in your last semster" challenge and i decided to start with pure html/css/js to begin this challenge with
 
 + **First day**
 
