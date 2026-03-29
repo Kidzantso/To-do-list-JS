@@ -25,3 +25,19 @@ Started by implementing task editing, allowing user to update task details like 
 
 
 Splitted each function in a page and added a header for better ui/ux and routing 
+
+# Screens
++ **Dashboard**
+<img width="1893" height="865" alt="Screenshot 2026-03-29 052549" src="https://github.com/user-attachments/assets/8dd22594-c7d6-41fe-b20b-dfebd3a146ec" />
+
+
++ **Add Task**
+<img width="1909" height="895" alt="Screenshot 2026-03-29 052614" src="https://github.com/user-attachments/assets/ca4cbd90-4bcb-4d7f-b564-c67984c64ca5" />
+
+
++ **Tasks**
+<img width="1903" height="863" alt="image" src="https://github.com/user-attachments/assets/b1cf0daa-602c-4ddd-abca-eada44968477" />
+
+
++ **Focus Mode**
+<img width="1908" height="870" alt="Screenshot 2026-03-29 052603" src="https://github.com/user-attachments/assets/4886fda9-8184-48f5-801f-993aa8c8cc76" />
